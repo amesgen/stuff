@@ -1,0 +1,7 @@
+[package]
+name = "bugrep"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+serde_dhall = "0.4.0"
