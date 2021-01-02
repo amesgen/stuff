@@ -1,0 +1,5 @@
+packages: .
+          -- https://github.com/amesgen/dhall-haskell, branch result-public
+          ../dhall-haskell/dhall
+
+index-state: 2021-01-02T01:50:34Z
