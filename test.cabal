@@ -1,0 +1,14 @@
+cabal-version: 2.4
+name: test
+version: 0.1.0.0
+
+executable test
+    main-is: Main.hs
+    build-tool-depends: autoexporter:autoexporter
+    build-depends: base
+    hs-source-dirs: app
+    default-language: Haskell2010
+    other-modules:
+        Words
+        Words.Hello
+        Words.Haskell
