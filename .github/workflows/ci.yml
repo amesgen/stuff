@@ -7,5 +7,5 @@ jobs:
       - uses: amesgen/actions/setup@win-ghc-9.0.1
         with:
           ghc-version: 9.0.1
-      - run: cabal build
+      - run: cabal update && cabal build
         if: ${{ always() }}
