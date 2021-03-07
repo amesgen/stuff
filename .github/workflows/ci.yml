@@ -8,3 +8,4 @@ jobs:
         with:
           ghc-version: 9.0.1
       - run: cabal build
+        if: ${{ always() }}
