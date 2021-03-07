@@ -4,8 +4,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: amesgen/actions/setup@win-ghc-9.0.1
+      - uses: amesgen/actions/setup@win-ghc-9.0.1-test
         with:
           ghc-version: 9.0.1
-      - run: cabal update && cabal build
-        if: ${{ always() }}
+      - run: cabal build
