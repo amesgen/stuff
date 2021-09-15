@@ -1,0 +1,15 @@
+name: Test
+on:
+  push:
+jobs:
+  test:
+    runs-on: macOS-latest
+    steps:
+      - run: |
+          wget -q https://github.com/amesgen/ormolu/releases/download/test-macos-2/ormolu-macOS.zip
+          7z e ormolu-macOS.zip
+
+          otool -L ormolu
+
+          echo RUNNING
+          ./ormolu --version
