@@ -1,0 +1,4 @@
+package stuff
+  ghc-options: -fwrite-ide-info
+
+with-compiler: ghc-9.0.1
