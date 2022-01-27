@@ -11,6 +11,18 @@
         "url": "https://github.com/input-output-hk/haskell.nix/archive/70a0d1b5425171cb99a73e106978868d2bfda309.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "macdylibbundler": {
+        "branch": "master",
+        "description": "Utility to ease bundling libraries into executables for OSX",
+        "homepage": null,
+        "owner": "auriamg",
+        "repo": "macdylibbundler",
+        "rev": "f36a906a446261a26cd9d6ccb97ab06cfde816a6",
+        "sha256": "1hq4k2cfz69wsbaydki9hn9wsr86kqwh78v25wm7d2fqbqqfjz32",
+        "type": "tarball",
+        "url": "https://github.com/auriamg/macdylibbundler/archive/f36a906a446261a26cd9d6ccb97ab06cfde816a6.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",
@@ -21,18 +33,6 @@
         "sha256": "1d3lsrqvci4qz2hwjrcnd8h5vfkg8aypq3sjd4g3izbc8frwz5sm",
         "type": "tarball",
         "url": "https://github.com/nmattia/niv/archive/5830a4dd348d77e39a0f3c4c762ff2663b602d4c.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nixpkgs": {
-        "branch": "nixpkgs-unstable",
-        "description": "Nix Packages collection",
-        "homepage": "",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b05d2077ebe219f6a47825767f8bab5c6211d200",
-        "sha256": "02jvk5rh05qbsgf2qffd6vw9w0z9n3kablgi1ff2a794s9rc8q4s",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/b05d2077ebe219f6a47825767f8bab5c6211d200.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

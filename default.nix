@@ -10,20 +10,10 @@ let
     };
     compiler-nix-name = "ghc8107";
   };
-  macdylibbundler =
-    (pkgs:
-      if true then
-        pkgs.macdylibbundler.overrideAttrs
-          (old: {
-            version = "custom";
-            src = pkgs.fetchFromGitHub {
-              owner = "amesgen";
-              repo = "macdylibbundler";
-              rev = "f98d06980e718947b1d4afed3586f475056563b6";
-              sha256 = "0qqgcp14vvr6r5yqj96hy3klc2dkcqyq909az30ql4y879r3xm62";
-            };
-          }) else pkgs.macdylibbundler)
-      (import sources.nixpkgs { });
+  macdylibbundler = pkgs.macdylibbundler.overrideAttrs (old: {
+    version = "custom";
+    src = sources.macdylibbundler;
+  });
 in
 rec {
   exe = hsPkgs.stuff.components.exes.stuff;
