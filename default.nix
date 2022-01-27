@@ -22,6 +22,6 @@ rec {
     mkdir -p $out/bin
     cp ${exe}/bin/stuff $out/bin/stuff
     chmod 755 $out/bin/stuff
-    dylibbundler -b -x $out/bin/stuff -d $out/bin -p '@executable_path'
+    dylibbundler -ns -b -x $out/bin/stuff -d $out/bin -p '@executable_path'
   '';
 }
