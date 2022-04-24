@@ -1,7 +1,7 @@
 cabal-version: >=1.22
 build-type: Simple
 name: ghc-lib-parser
-version: 0.20220424
+version: 9.4.0.20220324
 license: BSD3
 license-file: LICENSE
 category: Development
