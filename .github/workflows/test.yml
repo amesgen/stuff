@@ -1,0 +1,13 @@
+name: Test
+on: workflow_dispatch
+jobs:
+  cabal:
+    name: Test
+    runs-on: macOS-latest
+    steps:
+      - uses: cachix/install-nix-action@v17
+      - uses: actions/checkout@v3
+        with:
+          repository: amesgen/nixpkgs
+          ref: init-radicle-cli-tmp
+      - run: nix-build default.nix -A radicle-cli --keep-going
