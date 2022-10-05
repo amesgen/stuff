@@ -1,0 +1,29 @@
+name: Test msys2 pkg-config
+on: [push]
+jobs:
+  test:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: 'msys2 {0}'
+    steps:
+      - uses: msys2/setup-msys2@v2
+        with:
+          update: true
+          install: >-
+            base-devel
+            autoconf-wrapper
+            autoconf
+            automake
+            libtool
+            make
+            git
+            mingw-w64-x86_64-toolchain
+            mingw-w64-x86_64-libsodium
+            mingw-w64-x86_64-jq
+      - run: |
+          pacman --noconfirm -S mingw-w64-x86_64-pkg-config
+      - run: |
+          pkg-config --version
+          pkg-config --list-all
+          pkg-config --modversion zlib zlib libsodium
