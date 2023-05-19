@@ -1,0 +1,6 @@
+packages: .
+
+documentation: True
+
+package resourcet
+  documentation: True
