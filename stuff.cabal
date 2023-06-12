@@ -1,0 +1,10 @@
+cabal-version:      2.4
+name:               stuff
+version:            0.1.0.0
+
+test-suite stuff
+    type:             exitcode-stdio-1.0
+    main-is:          Main.hs
+    build-depends:    base, hmatrix
+    hs-source-dirs:   app
+    default-language: Haskell2010
