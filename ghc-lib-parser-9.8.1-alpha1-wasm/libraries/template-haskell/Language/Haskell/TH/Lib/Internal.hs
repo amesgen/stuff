@@ -35,7 +35,6 @@ import Prelude hiding (Applicative(..))
 type TExpQ :: TYPE r -> Kind.Type
 type TExpQ a = Q (TExp a)
 
-type CodeQ :: TYPE r -> Kind.Type
 type CodeQ = Code Q
 
 type InfoQ               = Q Info

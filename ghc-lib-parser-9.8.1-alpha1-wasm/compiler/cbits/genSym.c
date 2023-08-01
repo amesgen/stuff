@@ -18,7 +18,7 @@ HsInt ghc_unique_inc     = 1;
 #define UNIQUE_MASK ((1ULL << UNIQUE_BITS) - 1)
 
 HsInt ghc_lib_parser_genSym(void) {
-    HsInt u = atomic_inc((StgWord *)&ghc_unique_counter, ghc_unique_inc) & UNIQUE_MASK;
+    HsInt u = atomic_inc((StgWord *)&ghc_unique_counter64, ghc_unique_inc) & UNIQUE_MASK;
     // Uh oh! We will overflow next time a unique is requested.
     ASSERT(u != UNIQUE_MASK);
     return u;
