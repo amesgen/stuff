@@ -2,7 +2,7 @@
 -- ../../configure.  Make sure you are editing ghci.cabal.in, not ghci.cabal.
 
 name:           ghci
-version:        9.9
+version:        9.10.0.20240319
 license:        BSD3
 license-file:   LICENSE
 category:       GHC
@@ -75,16 +75,16 @@ library
     Build-Depends:
         rts,
         array            == 0.5.*,
-        base             >= 4.8 && < 4.20,
+        base             >= 4.8 && < 4.21,
         ghc-prim         >= 0.5.0 && < 0.12,
         binary           == 0.8.*,
         bytestring       >= 0.10 && < 0.13,
         containers       >= 0.5 && < 0.8,
         deepseq          >= 1.4 && < 1.6,
         filepath         >= 1.4 && < 1.6,
-        ghc-boot         == 9.9,
-        ghc-heap         == 9.9,
-        template-haskell == 2.21.*,
+        ghc-boot         == 9.10.0.20240319,
+        ghc-heap         == 9.10.0.20240319,
+        template-haskell == 2.22.*,
         transformers     >= 0.5 && < 0.7
 
     if !os(windows)

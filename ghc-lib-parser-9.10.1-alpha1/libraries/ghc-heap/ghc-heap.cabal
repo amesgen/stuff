@@ -1,6 +1,6 @@
 cabal-version:  3.0
 name:           ghc-heap
-version:        9.9
+version:        9.10.0.20240319
 license:        BSD-3-Clause
 license-file:   LICENSE
 maintainer:     libraries@haskell.org
@@ -28,7 +28,7 @@ library
                   , containers       >= 0.6.2.1 && < 0.8
 
   if impl(ghc >= 9.9)
-    build-depends:  ghc-internal     >= 0.1 && < 0.2
+    build-depends:  ghc-internal     >= 9.1001 && < 9.1002
 
   ghc-options:      -Wall
   if !os(ghcjs)

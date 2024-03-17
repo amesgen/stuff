@@ -3,7 +3,7 @@
 -- ghc-boot-th.cabal.in, not ghc-boot-th.cabal.
 
 name:           ghc-boot-th
-version:        9.9
+version:        9.10.0.20240319
 license:        BSD3
 license-file:   LICENSE
 category:       GHC
@@ -36,4 +36,4 @@ Library
             GHC.ForeignSrcLang.Type
             GHC.Lexeme
 
-    build-depends: base       >= 4.7 && < 4.20
+    build-depends: base       >= 4.7 && < 4.21

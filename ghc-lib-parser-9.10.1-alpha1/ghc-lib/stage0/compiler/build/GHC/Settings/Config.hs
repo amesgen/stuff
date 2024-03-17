@@ -28,4 +28,4 @@ cStage                :: String
 cStage                = show (1 :: Int)
 
 cProjectUnitId :: String
-cProjectUnitId = "ghc-9.9-inplace"
+cProjectUnitId = "ghc-9.10.0.20240319-inplace"

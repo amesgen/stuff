@@ -3,19 +3,19 @@ module GHC.Version where
 import Prelude -- See Note [Why do we import Prelude here?]
 
 cProjectGitCommitId   :: String
-cProjectGitCommitId   = "21e3f3250e88640087a1a60bee2cc113bf04509f"
+cProjectGitCommitId   = "515a34f44d93b2666829d7b004e78dba92060078"
 
 cProjectVersion       :: String
-cProjectVersion       = "9.9.20240306"
+cProjectVersion       = "9.10.0.20240319"
 
 cProjectVersionInt    :: String
-cProjectVersionInt    = "909"
+cProjectVersionInt    = "910"
 
 cProjectPatchLevel    :: String
-cProjectPatchLevel    = "20240306"
+cProjectPatchLevel    = "020240319"
 
 cProjectPatchLevel1   :: String
-cProjectPatchLevel1   = "20240306"
+cProjectPatchLevel1   = "0"
 
 cProjectPatchLevel2   :: String
-cProjectPatchLevel2   = "0"
+cProjectPatchLevel2   = "20240319"

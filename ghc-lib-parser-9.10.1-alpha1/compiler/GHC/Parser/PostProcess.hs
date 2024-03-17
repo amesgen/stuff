@@ -943,11 +943,13 @@ checkTyVars pp_what equals_or_where tc tparms
         -- Keep around an action for adjusting the annotations of extra parens
     chkParens :: [AddEpAnn] -> [AddEpAnn] -> HsBndrVis GhcPs -> LHsType GhcPs
               -> P (LHsTyVarBndr (HsBndrVis GhcPs) GhcPs)
-    chkParens ops cps bvis (L l (HsParTy _ ty))
+    chkParens ops cps bvis (L l (HsParTy _ (L lt  ty)))
       = let
           (o,c) = mkParensEpAnn (realSrcSpan $ locA l)
+          lcs = epAnnComments l
+          lt' = setCommentsEpAnn lt lcs
         in
-          chkParens (o:ops) (c:cps) bvis ty
+          chkParens (o:ops) (c:cps) bvis (L lt' ty)
     chkParens ops cps bvis ty = chk ops cps bvis ty
 
         -- Check that the name space is correct!
@@ -1135,8 +1137,8 @@ checkCmdBlockArguments :: LHsCmd GhcPs -> PV ()
 --     (((Eq a)))           -->  [Eq a]
 -- @
 checkContext :: LHsType GhcPs -> P (LHsContext GhcPs)
-checkContext orig_t@(L (EpAnn l _ _) _orig_t) =
-  check ([],[],emptyComments) orig_t
+checkContext orig_t@(L (EpAnn l _ cs) _orig_t) =
+  check ([],[],cs) orig_t
  where
   check :: ([EpaLocation],[EpaLocation],EpAnnComments)
         -> LHsType GhcPs -> P (LHsContext GhcPs)
@@ -1398,13 +1400,19 @@ checkPatBind _loc annsIn lhs (L _ grhss) mult = do
 
 
 checkValSigLhs :: LHsExpr GhcPs -> P (LocatedN RdrName)
-checkValSigLhs (L _ (HsVar _ lrdr@(L _ v)))
-  | isUnqual v
-  , not (isDataOcc (rdrNameOcc v))
-  = return lrdr
+checkValSigLhs lhs@(L l lhs_expr) =
+  case lhs_expr of
+    HsVar _ lrdr@(L _ v) -> check_var v lrdr
+    _                    -> make_err PsErrInvalidTypeSig_Other
+  where
+    check_var v lrdr
+      | not (isUnqual v) = make_err PsErrInvalidTypeSig_Qualified
+      | isDataOcc occ_n  = make_err PsErrInvalidTypeSig_DataCon
+      | otherwise        = pure lrdr
+      where occ_n = rdrNameOcc v
+    make_err reason = addFatalError $
+      mkPlainErrorMsgEnvelope (locA l) (PsErrInvalidTypeSignature reason lhs)
 
-checkValSigLhs lhs@(L l _)
-  = addFatalError $ mkPlainErrorMsgEnvelope (locA l) $ PsErrInvalidTypeSignature lhs
 
 checkDoAndIfThenElse
   :: (Outputable a, Outputable b, Outputable c)

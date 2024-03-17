@@ -485,8 +485,8 @@ instance Binary (FunPtr a) where
 #ifndef MIN_VERSION_ghc_heap
 #define MIN_VERSION_ghc_heap(major1,major2,minor) (\
   (major1) <  9 || \
-  (major1) == 9 && (major2) <  9 || \
-  (major1) == 9 && (major2) == 9 && (minor) <= 20240306)
+  (major1) == 9 && (major2) <  10 || \
+  (major1) == 9 && (major2) == 10 && (minor) <= 0)
 #endif /* MIN_VERSION_ghc_heap */
 #if MIN_VERSION_ghc_heap(8,11,0)
 instance Binary Heap.StgTSOProfInfo

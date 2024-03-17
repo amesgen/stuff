@@ -422,7 +422,7 @@ primOpDocs =
   , ("closureSize#"," @'closureSize#' closure@ returns the size of the given closure in\n     machine words. ")
   , ("getCurrentCCS#"," Returns the current 'CostCentreStack' (value is @NULL@ if\n     not profiling).  Takes a dummy argument which can be used to\n     avoid the call to 'getCurrentCCS#' being floated out by the\n     simplifier, which would result in an uninformative stack\n     (\"CAF\"). ")
   , ("clearCCS#"," Run the supplied IO action with an empty CCS.  For example, this\n     is used by the interpreter to run an interpreted computation\n     without the call stack showing that it was invoked from GHC. ")
-  , ("whereFrom#"," Returns the @InfoProvEnt @ for the info table of the given object\n     (value is @NULL@ if the table does not exist or there is no information\n     about the closure).")
+  , ("whereFrom#"," Fills the given buffer with the @InfoProvEnt@ for the info table of the\n     given object. Returns @1#@ on success and @0#@ otherwise.")
   , ("FUN","The builtin function type, written in infix form as @a % m -> b@.\n   Values of this type are functions taking inputs of type @a@ and\n   producing outputs of type @b@. The multiplicity of the input is\n   @m@.\n\n   Note that @'FUN' m a b@ permits representation polymorphism in both\n   @a@ and @b@, so that types like @'Int#' -> 'Int#'@ can still be\n   well-kinded.\n  ")
   , ("realWorld#"," The token used in the implementation of the IO monad as a state monad.\n     It does not pass any information at runtime.\n     See also 'GHC.Magic.runRW#'. ")
   , ("void#"," This is an alias for the unboxed unit tuple constructor.\n     In earlier versions of GHC, 'void#' was a value\n     of the primitive type 'Void#', which is now defined to be @(# #)@.\n   ")

@@ -3,7 +3,7 @@
 -- template-haskell.cabal.
 
 name:           template-haskell
-version:        2.21.0.0
+version:        2.22.0.0
 -- NOTE: Don't forget to update ./changelog.md
 license:        BSD3
 license-file:   LICENSE
@@ -55,8 +55,8 @@ Library
         Language.Haskell.TH.Lib.Map
 
     build-depends:
-        base        >= 4.11 && < 4.20,
-        ghc-boot-th == 9.9,
+        base        >= 4.11 && < 4.21,
+        ghc-boot-th == 9.10.0.20240319,
         ghc-prim,
         pretty      == 1.1.*
 

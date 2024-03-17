@@ -2,7 +2,7 @@
 -- ./configure.  Make sure you are editing ghc-bin.cabal.in, not ghc-bin.cabal.
 
 Name: ghc-bin
-Version: 9.9.20240306
+Version: 9.10.0.20240319
 Copyright: XXX
 -- License: XXX
 -- License-File: XXX
@@ -39,8 +39,8 @@ Executable ghc
                    filepath   >= 1   && < 1.6,
                    containers >= 0.5 && < 0.8,
                    transformers >= 0.5 && < 0.7,
-                   ghc-boot      == 9.9,
-                   ghc           == 9.9
+                   ghc-boot      == 9.10.0.20240319,
+                   ghc           == 9.10.0.20240319
 
     if os(windows)
         Build-Depends: Win32  >= 2.3 && < 2.15
@@ -57,8 +57,8 @@ Executable ghc
         -- NB: this is never built by the bootstrapping GHC+libraries
         Build-depends:
             deepseq        >= 1.4 && < 1.6,
-            ghc-prim       >= 0.5.0 && < 0.11,
-            ghci           == 9.9,
+            ghc-prim       >= 0.5.0 && < 0.12,
+            ghci           == 9.10.0.20240319,
             haskeline      == 0.8.*,
             exceptions     == 0.10.*,
             time           >= 1.8 && < 1.13
