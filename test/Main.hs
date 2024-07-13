@@ -109,7 +109,7 @@ sliceInputStream input toks = unfoldr sliceOnce (initText' input, toks)
 -- @since 0.0.2.0
 tokenizeHaskellLoc :: Text -> Maybe [(Token, Loc)]
 tokenizeHaskellLoc input =
-  case L.unP pLexer parseState of
+  case L.unP (pure []) parseState of
     L.PFailed {} -> Nothing
     L.POk _ x -> Just x
   where
