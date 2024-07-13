@@ -13,7 +13,7 @@
       };
       project = pkgs.haskell-nix.cabalProject' {
         src = ./.;
-        compiler-nix-name = "ghc910";
+        compiler-nix-name = "ghc96";
       };
     in
     {
