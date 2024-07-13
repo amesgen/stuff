@@ -14,8 +14,7 @@
 {-# OPTIONS_GHC -funbox-strict-fields #-}
 {-# OPTIONS_GHC -Wno-incomplete-uni-patterns #-}
 
-module Main (
-   main,
+module Standalone (
    Token(..), lexer, lexerDbg,
    ParserOpts(..), mkParserOpts,
    PState (..), initParserState, initPragState,
@@ -108,9 +107,6 @@ import GHC.Exts
 #else
 import GlaExts
 #endif
-
-main :: IO ()
-main = putStrLn "yeah"
 
 alex_tab_size :: Int
 alex_tab_size = 8
