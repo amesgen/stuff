@@ -5,4 +5,4 @@ import qualified Lexer as L
 main :: IO ()
 main = print "hello"
 
-foo = L.lexer
+foo = L.alex_base

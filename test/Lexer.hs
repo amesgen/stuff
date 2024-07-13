@@ -15,6 +15,7 @@
 {-# OPTIONS_GHC -Wno-incomplete-uni-patterns #-}
 
 module Lexer (
+  alex_base,
    Token(..), lexer, lexerDbg,
    ParserOpts(..), mkParserOpts,
    PState (..), initParserState, initPragState,
