@@ -16,7 +16,7 @@ import GHC.LanguageExtensions
 import qualified GHC.Parser.Lexer as L
 import GHC.Types.SrcLoc
 import GHC.Unit.Module.Warnings (emptyWarningCategorySet)
-import GHC.Utils.Error (DiagOpts (..))
+import GHC.Utils.Error (emptyDiagOpts)
 import GHC.Utils.Outputable (defaultSDocContext)
 
 main :: IO ()
@@ -119,23 +119,12 @@ tokenizeHaskellLoc input =
     parserOpts =
       L.mkParserOpts
         mempty
-        diagOpts
+        emptyDiagOpts
         []
         True -- safe imports
         True -- keep Haddock tokens
         True -- keep comment tokens
         False -- lex LINE and COLUMN pragmas
-    diagOpts =
-      DiagOpts
-        { diag_warning_flags = ES.empty,
-          diag_fatal_warning_flags = ES.empty,
-          diag_custom_warning_categories = emptyWarningCategorySet,
-          diag_fatal_custom_warning_categories = emptyWarningCategorySet,
-          diag_warn_is_error = False,
-          diag_reverse_errors = False,
-          diag_max_errors = Nothing,
-          diag_ppr_ctx = defaultSDocContext
-        }
 
 -- | The Haskell lexer.
 pLexer :: L.P [(Token, Loc)]
