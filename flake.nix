@@ -17,8 +17,19 @@
       };
     in
     {
+      inherit project;
       packages.default =
         project.projectCross.mingwW64.hsPkgs.stuff.checks.tests;
+      packages.exe =
+        project.projectCross.mingwW64.hsPkgs.stuff.components.tests.tests;
+      devShells.default = project.shellFor {
+        crossPlatforms = p: [ p.mingwW64 ];
+        nativeBuildInputs = [
+          pkgs.creduce
+          project.projectCross.mingwW64.pkgs.stdenv.cc
+        ];
+        withHoogle = false;
+      };
     });
   nixConfig = {
     extra-substituters = [
