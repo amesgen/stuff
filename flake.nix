@@ -26,6 +26,7 @@
         crossPlatforms = p: [ p.mingwW64 ];
         nativeBuildInputs = [
           pkgs.creduce
+          pkgs.winePackages.minimal
           project.projectCross.mingwW64.pkgs.stdenv.cc
         ];
         withHoogle = false;
