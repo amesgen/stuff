@@ -118,7 +118,7 @@ tokenizeHaskellLoc input =
     parseState = L.initParserState parserOpts buffer location
     parserOpts =
       L.mkParserOpts
-        (ES.fromList enabledExts)
+        mempty
         diagOpts
         []
         True -- safe imports
@@ -239,38 +239,3 @@ isHeaderPragma :: Text -> Bool
 isHeaderPragma txt0 = isJust $ do
   txt1 <- T.stripStart <$> T.stripPrefix "{-#" txt0
   guard (T.isPrefixOf "LANGUAGE" txt1 || T.isPrefixOf "OPTIONS_GHC" txt1)
-
-----------------------------------------------------------------------------
--- Language extensions
-
--- | Language extensions we enable by default.
-enabledExts :: [Extension]
-enabledExts =
-  [ ForeignFunctionInterface,
-    InterruptibleFFI,
-    CApiFFI,
-    Arrows,
-    TemplateHaskell,
-    TemplateHaskellQuotes,
-    ImplicitParams,
-    OverloadedLabels,
-    ExplicitForAll,
-    BangPatterns,
-    PatternSynonyms,
-    MagicHash,
-    RecursiveDo,
-    UnicodeSyntax,
-    UnboxedTuples,
-    UnboxedSums,
-    DatatypeContexts,
-    TransformListComp,
-    QuasiQuotes,
-    LambdaCase,
-    BinaryLiterals,
-    NegativeLiterals,
-    HexFloatLiterals,
-    TypeApplications,
-    StaticPointers,
-    NumericUnderscores,
-    StarIsType
-  ]
