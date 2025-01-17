@@ -1,0 +1,28 @@
+cabal-version: 3.0
+name: stuff
+version: 0
+
+flag no-options
+  default: True
+  manual: True
+
+flag language-before-options
+  default: True
+  manual: True
+
+library
+  ghc-options: -Wall
+  other-modules: A
+  default-language: Haskell2010
+
+  if flag(no-options)
+    hs-source-dirs: src
+  else
+    if flag(language-before-options)
+      hs-source-dirs: src-lo
+    else
+      hs-source-dirs: src-ol
+
+  build-depends:
+    base,
+    rel8,
