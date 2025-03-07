@@ -1,0 +1,35 @@
+cabal-version: 3.0
+name: stuff
+version: 0.1.0.0
+
+common common
+  ghc-options: -Wall
+  default-language: Haskell2010
+  build-depends: base
+
+library
+  import: common
+  hs-source-dirs: src
+  exposed-modules: Stuff
+  build-depends:
+    lucid,
+    miso,
+
+executable stuff
+  import: common
+  main-is: Main.hs
+  hs-source-dirs: app
+  build-depends:
+    miso,
+    stuff,
+
+  ghc-options:
+    -no-hs-main
+    -optl-mexec-model=reactor
+    "-optl-Wl,--export=hs_start"
+
+executable pregen
+  import: common
+  main-is: Pregen.hs
+  hs-source-dirs: app
+  build-depends: stuff
