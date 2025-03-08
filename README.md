@@ -10,9 +10,6 @@ Relevant Miso PR: https://github.com/dmjio/miso/pull/783
  4. Run `miniserve dist`.
  5. Visit http://localhost:8080/index.html
 
-The expectation is that the page briefly displays `Loading...` and then `Loaded`.
+The expectation is that the page briefly displays `Loading...` and then `Loaded`, plus a button that can increment a counter.
 
-The file `src/Stuff.hs` contains three variants of the same very simple Miso app:
-
- - `components1` (the default) and `components2`, which both do not work.
- - `noComponents`, which works, but doesn't use components.
+However, this does not seem to work yet: The rendering works, but clicking the button does nothing.
