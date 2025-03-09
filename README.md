@@ -1,4 +1,4 @@
-# Repro for pre-rendering for Miso components
+# Pre-rendering for Miso components
 
 Relevant Miso PR: https://github.com/dmjio/miso/pull/783
 
@@ -12,4 +12,4 @@ Relevant Miso PR: https://github.com/dmjio/miso/pull/783
 
 The expectation is that the page briefly displays `Loading...` and then `Loaded`, plus a button that can increment a counter.
 
-However, this does not seem to work yet: The rendering works, but clicking the button does nothing.
+Originally, this branch was used a minimal reproducible example for bugs in the aforementioned PR, but all of these have now been fixed by @dmjio :tada:
