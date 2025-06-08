@@ -11,4 +11,4 @@ executable cardano-wasm
   ghc-options: -Wall
   build-depends:
     base,
-    cardano-ledger-api ^>=1.11,
+    plutus-core,
